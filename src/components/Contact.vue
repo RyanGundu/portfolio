@@ -54,6 +54,7 @@
 </template>
 
 <script>
+import { pushMessage } from '../firebase'
 import Diamond from './Diamond.vue'
 export default {
     name: 'Contact',
@@ -70,6 +71,7 @@ export default {
     methods: {
       submit() {
         //send email logic here
+        pushMessage({Name: this.name, Email: this.email, Message: this.message});
         this.reset();
       },
       reset () {
